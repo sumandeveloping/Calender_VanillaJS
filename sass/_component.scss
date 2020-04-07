@@ -1,0 +1,311 @@
+///////////////////////////
+// CONTAINER
+.container {
+  padding: 4rem;
+  margin: 4rem auto;
+  max-width: 120rem;
+  min-height: 50rem;
+  display: flex;
+  background-color: $color-grey-light-1;
+  box-shadow: $shadow-dark;
+  //   justify-content: center;
+}
+
+///////////////////////////
+// calender-box
+.calender {
+  //   background-color: lightgreen;
+  flex: 0 0 38%;
+  height: 100%;
+  padding: 1rem 2rem;
+  border-right: 1px solid rgba($color-grey-dark-3, 0.18);
+  display: flex;
+  flex-direction: column;
+
+  &__current-time {
+    font-weight: 100;
+    font-size: 3.5rem;
+  }
+
+  &__current-date {
+    font-size: 1.6rem;
+    font-weight: 300;
+  }
+
+  &__wrapper {
+    min-width: 400px;
+    flex-shrink: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba($color-grey-dark-3, 0.5);
+    border-top: 1px solid rgba($color-grey-dark-3, 0.5);
+  }
+
+  &__header {
+    font-size: 1.8rem;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__month-year {
+    font-weight: 300;
+  }
+
+  &__button {
+    margin-right: 3.5rem;
+    flex: 0 0 68px;
+    display: flex;
+    justify-content: space-between;
+
+    &-prev,
+    &-next,
+    &-addEvent,
+    &-reset {
+      cursor: pointer;
+      font-size: 2.5rem;
+      border: none;
+      font-weight: 100;
+      transition: all 0.1s;
+      line-height: 0.6;
+      transition: color 0.1s linear;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:active {
+        transform: translateY(2px);
+      }
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+
+  &__button-add {
+    position: relative;
+    margin-right: 1.5rem;
+    // width: 10.2rem;
+    padding: 0.5rem 1.8rem;
+    color: $color-grey-dark-1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $color-grey-light-4;
+    border-radius: 5rem;
+    cursor: pointer;
+    // overflow: hidden;
+  }
+  &__button-add:hover &__button-addEvent {
+    color: $color-primary;
+  }
+
+  //=== main js part
+  &__content {
+    display: flex;
+    // flex-direction: row;
+    flex-flow: row wrap;
+    width: 100%;
+    font-size: 1.6rem;
+    font-weight: 100;
+    min-height: 38rem;
+    align-content: flex-start;
+
+    &-box {
+      background-color: #2d3453;
+      color: #bdc8f9;
+      position: relative;
+      flex: 0 0 50px;
+      height: 50px;
+      margin: 0.5px;
+      cursor: pointer;
+      border: 1px solid rgba($color-grey-dark-3, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease-in-out;
+      //   background-color: $color-grey-dark-1;
+      //   color: $color-grey-light-1;
+
+      &:hover {
+        background-color: $color-primary;
+        color: #fff;
+      }
+
+      .task-icon {
+        position: absolute;
+        top: 2px;
+        left: 3px;
+        transform: rotate(-30deg);
+        color: $color-primary-light;
+      }
+    }
+
+    &-box.activeBox {
+      border: none;
+      box-shadow: 0rem 0.1rem 0.8rem 0.2rem rgba($color-primary-light, 0.7);
+      background-color: $color-primary;
+      outline: 1px solid $color-primary-light;
+      outline-offset: 2px;
+      color: #fff;
+    }
+
+    &-box.taskDate {
+      border: none;
+      //box-shadow: 0rem 0.1rem 0.8rem 0.2rem rgba($color-primary-light, 0.7);
+      background-color: #b12ada;
+      outline-offset: 2px;
+      color: #fff;
+    }
+
+    &-box.days {
+      pointer-events: none;
+      font-weight: 500;
+    }
+    &-box.clicked {
+      background-color: $color-primary-dark;
+      color: #fff;
+      box-shadow: 0rem 0.1rem 0.8rem 0.2rem rgba($color-grey-dark-2, 0.5);
+      outline: none;
+      border: none;
+    }
+  }
+
+  //calender buttons
+  &__buttons {
+    display: flex;
+    flex: 0 0 10rem;
+    margin-right: 1rem;
+  }
+
+  //add event
+  &__addEvent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__note {
+    width: 100%;
+    overflow: hidden;
+    height: 0;
+    transition: opacity 0.2s ease-in;
+    opacity: 0;
+
+    &-input {
+      width: 90%;
+      border: 1px solid rgba($color-grey-dark-1, 0.18);
+      padding: 0.5rem 1rem;
+      font-size: 2.2rem;
+      color: $color-grey-dark-2;
+      font-family: "Open Sans", sans-serif;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &-saveBtn {
+      border: none;
+      outline: none;
+      display: inline-block;
+      width: 90%;
+      padding: 1rem 2rem;
+      background-image: linear-gradient(
+        to right bottom,
+        $color-primary-light,
+        $color-primary-dark
+      );
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.8s ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        background-image: linear-gradient(
+          to top left,
+          $color-primary-light,
+          $color-primary-dark
+        );
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  //javascript toggle class
+  &__note.showNote {
+    opacity: 1;
+    animation: showNote 1s ease-in infinite;
+  }
+}
+
+///////////////////////////
+// Task Box\
+.notes {
+  // background-color: rgb(230, 230, 230);
+  flex: 0 0 62%;
+  height: 100%;
+  padding: 1rem 2rem;
+
+  &__heading {
+    font-size: 3.5rem;
+    font-weight: 100;
+  }
+
+  &__container {
+    min-height: 48rem;
+  }
+
+  &__content {
+    padding: 1rem 0;
+    margin-bottom: 0.8rem;
+
+    &-date {
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: $color-primary-light;
+    }
+
+    &-text {
+      font-size: 1.4rem;
+      text-align: justify;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba($color-grey-dark-3, 0.4);
+    }
+  }
+
+  &__pagination {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    color: $color-primary;
+
+    &.showPagination {
+      display: flex;
+    }
+
+    &-prev,
+    &-next {
+      margin: 0 1rem;
+      cursor: pointer;
+      font-size: 2rem;
+    }
+    &-page {
+      margin: 0 1rem;
+    }
+  }
+}

@@ -1,0 +1,451 @@
+/*
+COLORS
+
+Primary: #eb2f64
+Primary light: #FF3366
+Primary dark: #BA265D
+
+Grey light 1: #faf9f9
+Grey light 2: #f4f2f2
+Grey light 3: #f0eeee
+Grey light 4: #ccc
+
+Grey dark 1: #333
+Grey dark 2: #777
+Grey dark 3: #999
+
+*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#eb2f64), to(#ba265d));
+  background-image: linear-gradient(to right bottom, #eb2f64, #ba265d);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #333;
+}
+
+.mt-1 {
+  margin-top: 1rem !important;
+}
+
+.mb-2 {
+  margin-bottom: 2rem !important;
+}
+
+.hr {
+  width: 100%;
+  margin: 2rem 0;
+  border-top: 1px solid rgba(204, 204, 204, 0.7);
+}
+
+.d-none {
+  display: none;
+}
+
+@-webkit-keyframes showNote {
+  0% {
+    height: 0;
+  }
+  50% {
+    height: 40%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes showNote {
+  0% {
+    height: 0;
+  }
+  50% {
+    height: 40%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+.container {
+  padding: 4rem;
+  margin: 4rem auto;
+  max-width: 120rem;
+  min-height: 50rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #faf9f9;
+  -webkit-box-shadow: 0rem 2rem 6rem rgba(0, 0, 0, 0.3);
+          box-shadow: 0rem 2rem 6rem rgba(0, 0, 0, 0.3);
+}
+
+.calender {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 38%;
+          flex: 0 0 38%;
+  height: 100%;
+  padding: 1rem 2rem;
+  border-right: 1px solid rgba(153, 153, 153, 0.18);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.calender__current-time {
+  font-weight: 100;
+  font-size: 3.5rem;
+}
+
+.calender__current-date {
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+.calender__wrapper {
+  min-width: 400px;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(153, 153, 153, 0.5);
+  border-top: 1px solid rgba(153, 153, 153, 0.5);
+}
+
+.calender__header {
+  font-size: 1.8rem;
+  font-weight: 300;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.calender__month-year {
+  font-weight: 300;
+}
+
+.calender__button {
+  margin-right: 3.5rem;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 68px;
+          flex: 0 0 68px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.calender__button-prev, .calender__button-next, .calender__button-addEvent, .calender__button-reset {
+  cursor: pointer;
+  font-size: 2.5rem;
+  border: none;
+  font-weight: 100;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+  line-height: 0.6;
+  -webkit-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+}
+
+.calender__button-prev:focus, .calender__button-next:focus, .calender__button-addEvent:focus, .calender__button-reset:focus {
+  outline: none;
+}
+
+.calender__button-prev:active, .calender__button-next:active, .calender__button-addEvent:active, .calender__button-reset:active {
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+}
+
+.calender__button-prev:hover, .calender__button-next:hover, .calender__button-addEvent:hover, .calender__button-reset:hover {
+  color: #eb2f64;
+}
+
+.calender__button-add {
+  position: relative;
+  margin-right: 1.5rem;
+  padding: 0.5rem 1.8rem;
+  color: #333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5rem;
+  cursor: pointer;
+}
+
+.calender__button-add:hover .calender__button-addEvent {
+  color: #eb2f64;
+}
+
+.calender__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  width: 100%;
+  font-size: 1.6rem;
+  font-weight: 100;
+  min-height: 38rem;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+}
+
+.calender__content-box {
+  background-color: #2d3453;
+  color: #bdc8f9;
+  position: relative;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50px;
+          flex: 0 0 50px;
+  height: 50px;
+  margin: 0.5px;
+  cursor: pointer;
+  border: 1px solid rgba(153, 153, 153, 0.3);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+.calender__content-box:hover {
+  background-color: #eb2f64;
+  color: #fff;
+}
+
+.calender__content-box .task-icon {
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  -webkit-transform: rotate(-30deg);
+          transform: rotate(-30deg);
+  color: #ff3366;
+}
+
+.calender__content-box.activeBox {
+  border: none;
+  -webkit-box-shadow: 0rem 0.1rem 0.8rem 0.2rem rgba(255, 51, 102, 0.7);
+          box-shadow: 0rem 0.1rem 0.8rem 0.2rem rgba(255, 51, 102, 0.7);
+  background-color: #eb2f64;
+  outline: 1px solid #ff3366;
+  outline-offset: 2px;
+  color: #fff;
+}
+
+.calender__content-box.taskDate {
+  border: none;
+  background-color: #b12ada;
+  outline-offset: 2px;
+  color: #fff;
+}
+
+.calender__content-box.days {
+  pointer-events: none;
+  font-weight: 500;
+}
+
+.calender__content-box.clicked {
+  background-color: #ba265d;
+  color: #fff;
+  -webkit-box-shadow: 0rem 0.1rem 0.8rem 0.2rem rgba(119, 119, 119, 0.5);
+          box-shadow: 0rem 0.1rem 0.8rem 0.2rem rgba(119, 119, 119, 0.5);
+  outline: none;
+  border: none;
+}
+
+.calender__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 10rem;
+          flex: 0 0 10rem;
+  margin-right: 1rem;
+}
+
+.calender__addEvent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.calender__note {
+  width: 100%;
+  overflow: hidden;
+  height: 0;
+  -webkit-transition: opacity 0.2s ease-in;
+  transition: opacity 0.2s ease-in;
+  opacity: 0;
+}
+
+.calender__note-input {
+  width: 90%;
+  border: 1px solid rgba(51, 51, 51, 0.18);
+  padding: 0.5rem 1rem;
+  font-size: 2.2rem;
+  color: #777;
+  font-family: "Open Sans", sans-serif;
+}
+
+.calender__note-input:focus {
+  outline: none;
+}
+
+.calender__note-saveBtn {
+  border: none;
+  outline: none;
+  display: inline-block;
+  width: 90%;
+  padding: 1rem 2rem;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#ff3366), to(#ba265d));
+  background-image: linear-gradient(to right bottom, #ff3366, #ba265d);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+  cursor: pointer;
+}
+
+.calender__note-saveBtn:hover {
+  background-image: -webkit-gradient(linear, right bottom, left top, from(#ff3366), to(#ba265d));
+  background-image: linear-gradient(to top left, #ff3366, #ba265d);
+}
+
+.calender__note-saveBtn:focus {
+  outline: none;
+}
+
+.calender__note.showNote {
+  opacity: 1;
+  -webkit-animation: showNote 1s ease-in infinite;
+          animation: showNote 1s ease-in infinite;
+}
+
+.notes {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 62%;
+          flex: 0 0 62%;
+  height: 100%;
+  padding: 1rem 2rem;
+}
+
+.notes__heading {
+  font-size: 3.5rem;
+  font-weight: 100;
+}
+
+.notes__container {
+  min-height: 48rem;
+}
+
+.notes__content {
+  padding: 1rem 0;
+  margin-bottom: 0.8rem;
+}
+
+.notes__content-date {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ff3366;
+}
+
+.notes__content-text {
+  font-size: 1.4rem;
+  text-align: justify;
+}
+
+.notes__content:not(:last-child) {
+  border-bottom: 1px solid rgba(153, 153, 153, 0.4);
+}
+
+.notes__pagination {
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1rem 0;
+  font-size: 1.5rem;
+  color: #eb2f64;
+}
+
+.notes__pagination.showPagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.notes__pagination-prev, .notes__pagination-next {
+  margin: 0 1rem;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.notes__pagination-page {
+  margin: 0 1rem;
+}
+/*# sourceMappingURL=style.css.map */

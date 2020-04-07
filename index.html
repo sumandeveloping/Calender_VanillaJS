@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calender</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="calender">
+        <h2 class="calender__current-time" id="current-time">20:57:30</h2>
+        <h5 class="calender__current-date" id="current-date">
+          21 March 2020
+        </h5>
+        <div class="calender__wrapper">
+          <div class="calender__header mb-2">
+            <h5 class="calender__month-year" id="calender__month-year">
+              March,&nbsp;2020
+            </h5>
+            <div class="calender__button">
+              <button
+                class="calender__button-prev"
+                id="prev-month"
+                data-type="prev"
+                data-month="0"
+                data-year="2020"
+              >
+                &larr;
+              </button>
+              <button
+                class="calender__button-next"
+                id="next-month"
+                data-type="next"
+                data-month="0"
+                data-year="2020"
+              >
+                &rarr;
+              </button>
+            </div>
+          </div>
+          <!-- end calender header-->
+          <div class="calender__content mb-2" id="calender-content">
+            <!-- Days -->
+            <!-- <div class="calender__content-box days">Sun</div>
+            <div class="calender__content-box days">Mon</div>
+            <div class="calender__content-box days">Tue</div>
+            <div class="calender__content-box days">Wed</div>
+            <div class="calender__content-box days">Thur</div>
+            <div class="calender__content-box days">Fri</div>
+            <div class="calender__content-box days">Sat</div> -->
+            <!-- Dates -->
+            <!-- <div class="calender__content-box activeBox">5</div>
+            <div class="calender__content-box">
+              <i class="fas fa-thumbtack task-icon"></i> 21
+            </div>
+            <div class="calender__content-box">21</div>
+            <div class="calender__content-box">21</div>
+            <div class="calender__content-box">21</div>
+            <div class="calender__content-box">21</div>
+            <div class="calender__content-box">21</div>
+            <div class="calender__content-box">21</div>
+            <div class="calender__content-box">21</div>
+            <div class="calender__content-box">21</div>
+            <div class="calender__content-box">21</div>
+            <div class="calender__content-box">21</div>
+            <div class="calender__content-box">21</div>
+            <div class="calender__content-box">21</div>
+            <div class="calender__content-box">21</div>
+            <div class="calender__content-box">21</div>
+            <div class="calender__content-box">21</div>
+            <div class="calender__content-box">21</div>
+            <div class="calender__content-box">21</div>
+            <div class="calender__content-box">21</div>
+            <div class="calender__content-box">21</div>
+            <div class="calender__content-box">21</div> -->
+          </div>
+          <!-- end calender content-->
+          <div class="calender__addEvent mb-2">
+            <h5 class="calender__current-date" id="current-date-event">
+              21 March 2020
+            </h5>
+            <div class="calender__buttons">
+              <div class="calender__button-add" id="addNote-btn">
+                <button class="calender__button-addEvent">+</button>
+              </div>
+              <div class="calender__button-add" id="resetNote-btn">
+                <button class="calender__button-reset">&#8634;</button>
+              </div>
+            </div>
+          </div>
+          <div class="calender__note" id="calender__note">
+            <textarea
+              class="calender__note-input"
+              name=""
+              id="note-input"
+              cols="30"
+              rows="10"
+            ></textarea>
+            <button class="calender__note-saveBtn mt-1" id="saveNote-btn">
+              Save Note
+            </button>
+          </div>
+          <!-- calender__notes -->
+        </div>
+        <!-- End calender wrapper-->
+      </div>
+      <!-- End calender-box-->
+
+      <!-- ============= DISPLAY NOTES ================== -->
+
+      <div class="notes">
+        <h2 class="notes__heading">Notes</h2>
+        <hr class="hr" />
+        <div class="notes__container" id="notes-container">
+          <div class="notes__content">
+            <p class="notes__content-date">23, March 2020</p>
+            <p class="notes__content-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptatum repudiandae eveniet, distinctio nihil neque accusamus
+              cumque hic, culpa dolore repellat velit. Cupiditate mollitia
+            </p>
+          </div>
+          <div class="notes__content">
+            <p class="notes__content-date">23, March 2020</p>
+            <p class="notes__content-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptatum repudiandae eveniet, distinctio nihil neque accusamus
+              cumque hic, culpa dolore repellat velit. Cupiditate mollitia
+            </p>
+          </div>
+          <div class="notes__content">
+            <p class="notes__content-date">23, March 2020</p>
+            <p class="notes__content-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptatum repudiandae eveniet, distinctio nihil neque accusamus
+              cumque hic, culpa dolore repellat velit. Cupiditate mollitia
+            </p>
+          </div>
+          <div class="notes__content">
+            <p class="notes__content-date">23, March 2020</p>
+            <p class="notes__content-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptatum repudiandae eveniet, distinctio nihil neque accusamus
+              cumque hic, culpa dolore repellat velit. Cupiditate mollitia
+            </p>
+          </div>
+          <div class="notes__content">
+            <p class="notes__content-date">23, March 2020</p>
+            <p class="notes__content-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptatum repudiandae eveniet, distinctio nihil neque accusamus
+              cumque hic, culpa dolore repellat velit. Cupiditate mollitia
+            </p>
+          </div>
+        </div>
+        <!-- -End notes__contaienr -->
+        <div class="notes__pagination" id="notes-pagination">
+          <span class="notes__pagination-prev" data-page="1" id="prev-page"
+            >&#9664;</span
+          >
+          <span class="notes__pagination-page" data-page="1" id="current-page"
+            >Page 1</span
+          >
+          <span class="notes__pagination-next" data-page="1" id="next-page"
+            >&#9654;</span
+          >
+        </div>
+        <!-- End notes__pagination -->
+      </div>
+    </div>
+    <!-- ENd container-->
+
+    <!-- SCRIPT -->
+    <script type="module" src="./js/index.js"></script>
+  </body>
+</html>

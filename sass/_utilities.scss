@@ -1,0 +1,27 @@
+.mt-1 {
+  margin-top: 1rem !important;
+}
+.mb-2 {
+  margin-bottom: 2rem !important;
+}
+.hr {
+  width: 100%;
+  // height: 1px;
+  margin: 2rem 0;
+  border-top: 1px solid rgba($color-grey-light-4, 0.7);
+}
+.d-none {
+  display: none;
+}
+
+@keyframes showNote {
+  0% {
+    height: 0;
+  }
+  50% {
+    height: 40%;
+  }
+  100% {
+    height: 100%;
+  }
+}
